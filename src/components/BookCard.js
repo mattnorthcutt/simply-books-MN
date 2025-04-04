@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import Link from 'next/link';
-import { deleteBook } from '../api/bookData';
+import { deleteBook, updateBook } from '../api/bookData';
 
 function BookCard({ bookObj, onUpdate }) {
   // FOR DELETE, WE NEED TO REMOVE THE BOOK AND HAVE THE VIEW RERENDER,
@@ -15,6 +15,59 @@ function BookCard({ bookObj, onUpdate }) {
       deleteBook(bookObj.firebaseKey).then(() => onUpdate());
     }
   };
+
+  const privateBook = () => {
+    const payload = {
+      firebaseKey: bookObj.firebaseKey,
+      public: 'false',
+    };
+    updateBook(payload).then(() => onUpdate());
+  };
+  const publicBook = () => {
+    const payload = {
+      firebaseKey: bookObj.firebaseKey,
+      public: 'true',
+    };
+    updateBook(payload).then(() => onUpdate());
+  };
+
+  let privateButton = null;
+
+  if (bookObj?.public === 'true') {
+    privateButton = (
+      <Button
+        onClick={privateBook}
+        className="private-btn"
+        style={{
+          clipPath: 'polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%)',
+          backgroundColor: '#17a2b8',
+          color: 'white',
+          border: 'none',
+          padding: '10px 20px',
+          transition: 'transform 0.2s ease-in-out',
+        }}
+      >
+        Private Your Book
+      </Button>
+    );
+  } else if (bookObj?.public === 'false') {
+    privateButton = (
+      <Button
+        onClick={publicBook}
+        className="public-btn"
+        style={{
+          clipPath: 'polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%)',
+          backgroundColor: '#17a2b8',
+          color: 'white',
+          border: 'none',
+          padding: '10px 20px',
+          transition: 'transform 0.2s ease-in-out',
+        }}
+      >
+        Public Your Book
+      </Button>
+    );
+  }
 
   return (
     <Card style={{ width: '18rem', margin: '10px' }}>
@@ -43,6 +96,7 @@ function BookCard({ bookObj, onUpdate }) {
         <Button variant="danger" onClick={deleteThisBook} className="m-2">
           DELETE
         </Button>
+        {privateButton}
       </Card.Body>
     </Card>
   );
@@ -55,6 +109,7 @@ BookCard.propTypes = {
     sale: PropTypes.bool,
     price: PropTypes.string,
     firebaseKey: PropTypes.string,
+    public: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };
