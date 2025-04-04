@@ -111,4 +111,23 @@ const favoriteAuthors = (uid) =>
       .catch(reject);
   });
 
-export { getAuthors, createAuthor, getSingleAuthor, deleteSingleAuthor, updateAuthor, favoriteAuthors, getAuthorBooks };
+const getEveryAuthor = () =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/authors.json`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data) {
+          resolve(Object.values(data));
+        } else {
+          resolve([]);
+        }
+      })
+      .catch(reject);
+  });
+
+export { getAuthors, createAuthor, getSingleAuthor, deleteSingleAuthor, updateAuthor, favoriteAuthors, getAuthorBooks, getEveryAuthor };
