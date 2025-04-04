@@ -4,11 +4,10 @@ import PropTypes from 'prop-types';
 import { useCallback, useState } from 'react';
 import { Form, InputGroup } from 'react-bootstrap';
 
-// HUGE THANKS TO OZZY, I was lazy and didn't want to make the component so ozzy was super kind to just send his to me!
 export default function Search({ onSearch, type = '' }) {
   const [searchTerm, setSearchTerm] = useState('');
 
-  const handleSearch = useCallback(
+  const getSearch = useCallback(
     (e) => {
       const term = e.target.value;
       setSearchTerm(term);
@@ -17,7 +16,7 @@ export default function Search({ onSearch, type = '' }) {
     [onSearch],
   );
 
-  const getPlaceholder = () => {
+  const getHolder = () => {
     if (type === 'books') return 'Search Book Titles...';
     if (type === 'authors') return 'Search Author Last Name...';
     return 'Search';
@@ -28,9 +27,9 @@ export default function Search({ onSearch, type = '' }) {
       <InputGroup className="mb-4">
         <Form.Control
           type="text"
-          placeholder={getPlaceholder()}
+          placeholder={getHolder()}
           value={searchTerm}
-          onChange={handleSearch}
+          onChange={getSearch}
           style={{
             fontSize: '1.2rem',
             marginBottom: '35px',
