@@ -23,7 +23,7 @@ function AuthorPage() {
   }, [user?.uid]);
 
   const getSearch = (term) => {
-    const filter = authors.filter((author) => author.last_name.toLowerCase().includes(term.toLowerCase()));
+    const filter = authors.filter((author) => author.first_name.toLowerCase().includes(term.toLowerCase()));
     setFilterAuthor(filter);
   };
 

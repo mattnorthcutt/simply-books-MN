@@ -59,7 +59,7 @@ export default function ViewAuthor({ params }) {
             }}
           >
             {authorDetails.first_name} {authorDetails.last_name}
-            {authorDetails.favorite ? ' 🤍' : ''}
+            {authorDetails.favorite ? '♡' : ''}
           </h3>
           <p
             style={{

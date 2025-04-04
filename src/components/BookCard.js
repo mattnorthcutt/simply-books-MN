@@ -73,7 +73,7 @@ function BookCard({ bookObj, onUpdate }) {
     <Card style={{ width: '18rem', margin: '10px' }}>
       <Card.Img variant="top" src={bookObj.image} alt={bookObj.title} style={{ height: '400px' }} />
       <Card.Body>
-        <Card.Title>{bookObj.title}</Card.Title>
+        <Card.Title style={{ height: '40px' }}>{bookObj.title}</Card.Title>
         <p className="card-text bold">
           {bookObj.sale && (
             <span>

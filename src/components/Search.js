@@ -18,7 +18,7 @@ export default function Search({ onSearch, type = '' }) {
 
   const getHolder = () => {
     if (type === 'books') return 'Search Book Titles...';
-    if (type === 'authors') return 'Search Author Last Name...';
+    if (type === 'authors') return 'Search Author Name...';
     return 'Search';
   };
 
@@ -31,10 +31,10 @@ export default function Search({ onSearch, type = '' }) {
           value={searchTerm}
           onChange={getSearch}
           style={{
-            fontSize: '1.2rem',
-            marginBottom: '35px',
-            borderWidth: '4px',
-            borderColor: '#ffc107',
+            fontSize: '20px',
+            marginBottom: '25px',
+            borderWidth: '2px',
+            borderColor: 'lightgrey',
             borderStyle: 'solid',
           }}
         />
