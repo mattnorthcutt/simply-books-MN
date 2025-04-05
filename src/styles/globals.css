@@ -2,3 +2,18 @@ body {
   background: black;
   color: white;
 }
+
+    /* App.css */
+    .app {
+      transition: background-color 0.3s ease; /* Add transition for smooth effect */
+    }
+
+    .light-mode {
+      background-color: #fff;
+      color: #000;
+    }
+
+    .dark-mode {
+      background-color: #333;
+      color: #fff;
+    }
