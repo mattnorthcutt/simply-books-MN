@@ -36,7 +36,6 @@ export default function ViewAuthor({ params }) {
           maxWidth: '800px',
           width: '100%',
           padding: '30px',
-          borderRadius: '15px',
         }}
       >
         <div className="d-flex flex-column align-items-center">
@@ -47,7 +46,6 @@ export default function ViewAuthor({ params }) {
               width: '180px',
               height: '220px',
               objectFit: 'cover',
-              borderRadius: '20%',
               marginBottom: '20px',
             }}
           />
@@ -104,7 +102,6 @@ export default function ViewAuthor({ params }) {
                     style={{
                       width: '100%',
                       height: 'auto',
-                      borderRadius: '10px',
                       marginBottom: '10px',
                     }}
                   />
