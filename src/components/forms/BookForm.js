@@ -17,7 +17,7 @@ const initialState = {
   sale: false,
   title: '',
   author_id: '',
-  public: false,
+  private: true,
 };
 
 function BookForm({ obj = initialState }) {

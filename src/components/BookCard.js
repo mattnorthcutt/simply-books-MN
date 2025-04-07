@@ -19,21 +19,21 @@ function BookCard({ bookObj, onUpdate }) {
   const privateBook = () => {
     const payload = {
       firebaseKey: bookObj.firebaseKey,
-      public: 'false',
+      private: 'true',
     };
     updateBook(payload).then(() => onUpdate());
   };
   const publicBook = () => {
     const payload = {
       firebaseKey: bookObj.firebaseKey,
-      public: 'true',
+      private: 'false',
     };
     updateBook(payload).then(() => onUpdate());
   };
 
   let privateButton = null;
 
-  if (bookObj?.public === 'true') {
+  if (bookObj?.private === 'true') {
     privateButton = (
       <Button
         onClick={privateBook}
@@ -50,7 +50,7 @@ function BookCard({ bookObj, onUpdate }) {
         Private Your Book
       </Button>
     );
-  } else if (bookObj?.public === 'false') {
+  } else if (bookObj?.private === 'false') {
     privateButton = (
       <Button
         onClick={publicBook}
@@ -96,7 +96,7 @@ function BookCard({ bookObj, onUpdate }) {
         <Button variant="danger" onClick={deleteThisBook} className="m-2">
           DELETE
         </Button>
-        {privateButton}
+        <Button>{privateButton}</Button>
       </Card.Body>
     </Card>
   );
@@ -109,7 +109,7 @@ BookCard.propTypes = {
     sale: PropTypes.bool,
     price: PropTypes.string,
     firebaseKey: PropTypes.string,
-    public: PropTypes.string,
+    private: PropTypes.string,
   }).isRequired,
   onUpdate: PropTypes.func.isRequired,
 };

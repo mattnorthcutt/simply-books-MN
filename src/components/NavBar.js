@@ -21,6 +21,9 @@ export default function NavBar() {
             <Link className="nav-link" href="/author">
               Authors
             </Link>
+            <Link className="nav-link" href="/community">
+              Community
+            </Link>
           </Nav>
           <Button variant="danger" onClick={signOut}>
             Sign Out

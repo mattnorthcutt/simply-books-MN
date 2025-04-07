@@ -16,6 +16,19 @@ const getBooks = (uid) =>
       .catch(reject);
   });
 
+const getPrivateBooks = () =>
+  new Promise((resolve, reject) => {
+    fetch(`${endpoint}/books.json?orderBy="private"&equalTo="false"`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => resolve(Object.values(data)))
+      .catch(reject);
+  });
+
 // TODO: DELETE BOOK
 const deleteBook = (firebaseKey) =>
   new Promise((resolve, reject) => {
@@ -103,4 +116,4 @@ const booksOnSale = (uid) =>
       .catch(reject);
   });
 
-export { getBooks, createBook, booksOnSale, deleteBook, getSingleBook, updateBook, getBooksByAuthor };
+export { getBooks, createBook, booksOnSale, deleteBook, getSingleBook, updateBook, getBooksByAuthor, getPrivateBooks };
