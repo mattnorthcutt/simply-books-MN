@@ -39,12 +39,7 @@ function BookCard({ bookObj, onUpdate }) {
         onClick={privateBook}
         className="private-btn"
         style={{
-          clipPath: 'polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%)',
-          backgroundColor: '#17a2b8',
-          color: 'white',
-          border: 'none',
-          padding: '10px 20px',
-          transition: 'transform 0.2s ease-in-out',
+          width: '100px',
         }}
       >
         Private Your Book
@@ -56,12 +51,7 @@ function BookCard({ bookObj, onUpdate }) {
         onClick={publicBook}
         className="public-btn"
         style={{
-          clipPath: 'polygon(0 0, 100% 0, 100% 75%, 50% 100%, 0 75%)',
-          backgroundColor: '#17a2b8',
-          color: 'white',
-          border: 'none',
-          padding: '10px 20px',
-          transition: 'transform 0.2s ease-in-out',
+          width: '100px',
         }}
       >
         Public Your Book
