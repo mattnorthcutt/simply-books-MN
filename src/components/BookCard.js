@@ -86,7 +86,7 @@ function BookCard({ bookObj, onUpdate }) {
         <Button variant="danger" onClick={deleteThisBook} className="m-2">
           DELETE
         </Button>
-        <Button>{privateButton}</Button>
+        {privateButton}
       </Card.Body>
     </Card>
   );
